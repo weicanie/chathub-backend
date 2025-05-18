@@ -2,8 +2,8 @@ import { HttpException, HttpStatus, Inject, Injectable, Logger } from '@nestjs/c
 import { JwtService } from '@nestjs/jwt';
 //X: import { DbService } from '../db/db.service';
 import { DbService } from '../DB/db.service';
-import { OssService } from '../OSS/oss.service';
-import { RedisService } from '../REDIS/redis.service';
+import { OssService } from '../oss/oss.service';
+import { RedisService } from '../redis/redis.service';
 import { UserInfoFromToken } from '../types';
 import { passwordEncrypt, resBundle } from '../utils';
 import { LoginUserDto } from './dto/login-user.dto';

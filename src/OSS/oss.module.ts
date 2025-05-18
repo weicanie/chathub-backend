@@ -1,9 +1,8 @@
-import { Global, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import * as Minio from 'minio';
 import { OssController } from './oss.controller';
 import { OssService } from './oss.service';
 
-@Global()
 @Module({
 	controllers: [OssController],
 	providers: [

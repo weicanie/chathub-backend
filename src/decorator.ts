@@ -12,7 +12,7 @@ const RequirePermission = (tableName: string) =>
 		requireOwn: true,
 		tableName
 	});
-// 获取 request 对象中通过 Guard 储存的用户信息。
+// 获取 request 对象中通过 Guard 时储存的用户信息。
 const UserInfo = createParamDecorator((param: string, ctx: ExecutionContext) => {
 	const request = ctx.switchToHttp().getRequest<MyRequest>();
 	if (!request.userInfo) {

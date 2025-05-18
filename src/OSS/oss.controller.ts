@@ -1,28 +1,12 @@
-import { Controller, Get, HttpStatus, Logger, Query } from '@nestjs/common';
-import { ApiBearerAuth, ApiOperation, ApiQuery, ApiResponse } from '@nestjs/swagger';
+import { Controller, Get, Logger, Query } from '@nestjs/common';
 import { RequireLogin } from '../decorator';
 import { OssService } from './oss.service';
 @Controller('oss')
 export class OssController {
-	constructor(private ossService: OssService) {}
 	private logger = new Logger();
-	@ApiOperation({ summary: 'get presignedURL of a object(file) to upload to OSS' })
-	@ApiBearerAuth('bearer')
-	@ApiResponse({
-		status: HttpStatus.OK,
-		type: String
-	})
-	@ApiQuery({
-		name: 'name',
-		type: String,
-		required: true,
-		example: 'mmk.png'
-	})
-	@ApiQuery({
-		name: 'bucketName',
-		type: String,
-		required: false
-	})
+
+	constructor(private ossService: OssService) {}
+
 	@RequireLogin()
 	@Get('presignedUrl')
 	async presignedPutObject(

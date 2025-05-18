@@ -30,9 +30,16 @@ const aiId = 4;
 export class ChatGateway {
 	@Inject(AichatService)
 	aichatService: AichatService;
-	constructor(private readonly chatService: ChatService) {}
+
+	@Inject(ChatHistoryService)
+	private chatRecordService: ChatHistoryService;
+
+	@Inject(UserService)
+	private userService: UserService;
 
 	@WebSocketServer() server: Server;
+
+	constructor(private readonly chatService: ChatService) {}
 
 	@SubscribeMessage('joinRoom')
 	joinRoom(client: Socket, payload: JoinRoomPayload): void {
@@ -45,12 +52,6 @@ export class ChatGateway {
 			userId: payload.userId
 		});
 	}
-
-	@Inject(ChatHistoryService)
-	private chatRecordService: ChatHistoryService;
-
-	@Inject(UserService)
-	private userService: UserService;
 
 	@SubscribeMessage('sendMessage')
 	async sendMessage(@MessageBody() payload: SendMessagePayload) {

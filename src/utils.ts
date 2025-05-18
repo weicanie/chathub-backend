@@ -4,7 +4,8 @@ function passwordEncrypt(password: string) {
 	return pwd;
 }
 function resBundle<T = unknown>(data: T) {
-	/* 	return {
+	/* 	
+	return {
 		data,
 		message: 'success',
 		code: 200

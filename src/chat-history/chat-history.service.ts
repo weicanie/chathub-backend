@@ -3,7 +3,7 @@ import { chatRecord } from '@prisma/client';
 import { DbService } from '../DB/db.service';
 
 export type HistoryDto = Pick<chatRecord, 'chatroomId' | 'senderId' | 'type' | 'content'>;
-
+//TO 亮点：类型体操
 interface Obj {
 	[key: string]: any;
 }

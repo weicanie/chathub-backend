@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
-import { DbModule } from '../DB/db.module';
+import { EmailModule } from '../email/email.module';
+import { OssModule } from '../oss/oss.module';
+import { RedisModule } from '../redis/redis.module';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
 
@@ -7,6 +9,6 @@ import { UserService } from './user.service';
 	controllers: [UserController],
 	providers: [UserService],
 	exports: [UserService],
-	imports: [DbModule]
+	imports: [OssModule, RedisModule, EmailModule]
 })
 export class UserModule {}
