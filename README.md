@@ -1,10 +1,2 @@
-## run
-
-```
-npm install
-```
-
-```
-npm run start
-```
+使用nest、socket-io搭建的实时聊天网站后端,支持好友聊天、群组聊天等功能。
 
